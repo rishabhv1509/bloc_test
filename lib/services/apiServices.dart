@@ -21,7 +21,7 @@ class ApiServices {
   }
 
   Future ceateUser(Map<String, String> body) async {
-    String url = '$baseUrl/register';
+    String url = '$baseUrl/users';
     try {
       final result = await http.post(url, body: body);
       if (result.statusCode == 200) {

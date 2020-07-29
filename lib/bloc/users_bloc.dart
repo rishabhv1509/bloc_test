@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:bloc_test/models/create_users.dart';
 import 'package:bloc_test/models/users.dart';
 import 'package:bloc_test/services/apiServices.dart';
 import 'package:equatable/equatable.dart';
@@ -27,20 +28,12 @@ class UsersBloc extends Bloc<UsersEvent, UsersState> {
         print(e);
         yield UserFailure();
       }
-    }
-    if (event is CreateUser) {
+    } else if (event is CreateUser) {
       try {
-        if (currentState is UsersInitial) {
-          print('IN CEAE');
-          final result = await ApiServices()
-              .ceateUser({"email": "test", "password": "password"});
-          // if(result.)
-          yield UserLoading();
-          print('IN CEAE 2');
-          print(result);
-          yield CreateSuccess();
-          print('IN CEAE 3');
-        }
+        final result = await ApiServices()
+            .ceateUser({"email": "email", "password": "password"});
+        yield UserLoading();
+        yield CreateSuccess(createdUser: CreateUsers.fromJson(result));
       } catch (e) {
         print(e);
         yield UserFailure();

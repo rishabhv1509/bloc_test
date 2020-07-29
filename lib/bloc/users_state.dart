@@ -22,9 +22,7 @@ class UserLoading extends UsersState {
 class UserSuccess extends UsersState {
   final Users users;
   UserSuccess({this.users});
-  UserSuccess copyWith({
-    Users posts,
-  }) {
+  UserSuccess copyWith() {
     return UserSuccess(
       users: users ?? this.users,
     );
@@ -35,6 +33,14 @@ class UserSuccess extends UsersState {
 }
 
 class CreateSuccess extends UsersState {
+  final CreateUsers createdUser;
+  CreateSuccess({this.createdUser});
+  CreateSuccess copyWith() {
+    return CreateSuccess(
+      createdUser: createdUser ?? this.createdUser,
+    );
+  }
+
   @override
   List<Object> get props => [];
 }

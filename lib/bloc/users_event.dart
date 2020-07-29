@@ -10,6 +10,10 @@ class FetchUsers extends UsersEvent {
 }
 
 class CreateUser extends UsersEvent {
+  final String userName;
+  final String password;
+
+  CreateUser(this.userName, this.password);
   @override
   List<Object> get props => [];
 }
