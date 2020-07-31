@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 
 class ApiServices {
   String baseUrl = 'https://reqres.in/api';
-  Future getUsers() async {
+  Future fetchUsers() async {
     String url = '$baseUrl/users';
     try {
       final result = await http.get(url);
@@ -20,7 +20,7 @@ class ApiServices {
     }
   }
 
-  Future ceateUser(Map<String, String> body) async {
+  Future registerUser(Map<String, String> body) async {
     String url = '$baseUrl/users';
     try {
       final result = await http.post(url, body: body);

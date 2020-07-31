@@ -1,12 +1,12 @@
-class CreateUsers {
+class RegisterdUser {
   String email;
   String password;
   String id;
   String createdAt;
 
-  CreateUsers({this.email, this.password, this.id, this.createdAt});
+  RegisterdUser({this.email, this.password, this.id, this.createdAt});
 
-  CreateUsers.fromJson(Map<String, dynamic> json) {
+  RegisterdUser.fromJson(Map<String, dynamic> json) {
     email = json['email'];
     password = json['password'];
     id = json['id'];

@@ -1,19 +1,11 @@
 part of 'users_bloc.dart';
 
-abstract class UsersEvent extends Equatable {
-  const UsersEvent();
-}
+abstract class UsersEvent {}
 
-class FetchUsers extends UsersEvent {
-  @override
-  List<Object> get props => [];
-}
+class FetchUsers extends UsersEvent {}
 
-class CreateUser extends UsersEvent {
+class RegisterUser extends UsersEvent {
   final String userName;
   final String password;
-
-  CreateUser(this.userName, this.password);
-  @override
-  List<Object> get props => [];
+  RegisterUser(this.userName, this.password);
 }

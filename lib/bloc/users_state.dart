@@ -1,46 +1,29 @@
 part of 'users_bloc.dart';
 
-abstract class UsersState extends Equatable {
-  const UsersState();
-}
+abstract class UsersState {}
 
-class UsersInitial extends UsersState {
-  @override
-  List<Object> get props => [];
-}
+class UsersInitial extends UsersState {}
 
-class UserFailure extends UsersState {
-  @override
-  List<Object> get props => [];
-}
+class UserFailure extends UsersState {}
 
-class UserLoading extends UsersState {
-  @override
-  List<Object> get props => [];
-}
+class UserLoading extends UsersState {}
 
-class UserSuccess extends UsersState {
+class UserFetched extends UsersState {
   final Users users;
-  UserSuccess({this.users});
-  UserSuccess copyWith() {
-    return UserSuccess(
+  UserFetched({this.users});
+  UserFetched copyWith() {
+    return UserFetched(
       users: users ?? this.users,
     );
   }
-
-  @override
-  List<Object> get props => [users];
 }
 
-class CreateSuccess extends UsersState {
-  final CreateUsers createdUser;
-  CreateSuccess({this.createdUser});
-  CreateSuccess copyWith() {
-    return CreateSuccess(
+class UserRegisterd extends UsersState {
+  final RegisterdUser createdUser;
+  UserRegisterd({this.createdUser});
+  UserRegisterd copyWith() {
+    return UserRegisterd(
       createdUser: createdUser ?? this.createdUser,
     );
   }
-
-  @override
-  List<Object> get props => [];
 }
